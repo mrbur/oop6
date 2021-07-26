@@ -28,21 +28,13 @@ public:
 	int getValue() const {
 		int value = 0;
 		for (vector<Card*>::const_iterator it = cards.begin(); it != cards.end(); it++) {
-			if ((*it)->getValue() != 1) {
+			if ((*it)->getValue() == 1 && (value + 11) < 21) {
+				value += 11;
+			}
+			else {
 				value += (*it)->getValue();
 			}
 		}
-		for (vector<Card*>::const_iterator it = cards.begin(); it != cards.end(); it++) {
-			if ((*it)->getValue() == 1) {
-				if ((value + 11) >= 21) {
-					value += 1;
-				}
-				else {
-					value += 11;
-				}
-			}
-			
-		}
-		return value;
+
 	}
 };
