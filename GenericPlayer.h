@@ -29,4 +29,18 @@ public:
 			cout << "Player " << name << " is not busted";
 		}
 	}
+
+	void viewStatus() {
+		cout << name << " status:" << endl;
+		for (vector<Card*>::const_iterator it = cards.begin(); it != cards.end(); it++) {
+			
+			cout << (*it)->getCardData() << endl;
+		}
+		cout << "Values:" << getValue() << endl;
+		cout << endl;
+	}
+
+	string getName() {
+		return this->name;
+	}
 };
